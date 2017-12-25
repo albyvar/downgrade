@@ -1,0 +1,36 @@
+<body class="depiction">
+  <header>
+    <h1>HOW TO DOWNGRADE IPHONE 5 FROM 10.3.3 TO 8.4.1 AND SKIP ACTIVATION</h1>
+  </header>
+  <main id="content" role="main">
+    <ul>
+      <li>
+        Requirements:
+      </li>
+      <li>
+        The iPhone 5 model 5,2 (i'll add 5,1 ipsw later) on 10.3.x
+        kloader modified to work with helix jb (thanks @nyan_satan): https://t.co/hoIMFYzCsf
+        odysseusota2 : https://www.dropbox.com/s/c6rz5u2vw9oyf9f/odysseusOTA2-v1.0.4.zip
+        Pwned ibss: https://t.co/FANcsi2WYS
+        My modified ipsw: 
+        
+So, to start:
+
+copy the kloader binary and the pwned ibss on the device with iFunbox or something similar
+Open a terminal and do chmod +x kloader (specify where kloader is etc..)
+now do kloader ibss_5 (or whatever you called ibss)
+wait for the device to shut down, and after some seconds press any button.
+Connect the device in dfu mode to the pc.
+Open terminal and do ./idevicerestore -t iPhone5,2_8.4.1_NoSetup.ipsw
+Now do: ./idevicerestore -w iPhone5,2_8.4.1_NoSetup.ipsw
+Wait for it to complete the restore
+Done.
+
+NOTE: I know this tutorial is not well made, when i have some more free time i'll make it better.
+Another thing: re-distributing ipsw is illegal. But for now I think it's the only solution to avoid users from downloading tons of material and fuck up things.
+
+</li>
+    </ul>
+    <p class="footer">Thanks for visiting my website :)</p>
+  </main>
+</body>
