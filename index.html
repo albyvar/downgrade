@@ -1,39 +1,86 @@
 <!DOCTYPE html>
-<html>
-<body class="depiction">
-  <header>
-    <h1>HOW TO DOWNGRADE IPHONE 5 FROM 10.3.3 TO 8.4.1 AND SKIP ACTIVATION</h1>
-  </header>
-  <main id="content" role="main">
-    <ul>
-      <li>
-        Requirements:
-      </li>
-      <li>
-        The iPhone 5 model 5,2 (i'll add 5,1 ipsw later) on 10.3.x
-        kloader modified to work with helix jb (thanks @nyan_satan): https://t.co/hoIMFYzCsf
-        odysseusota2 : https://www.dropbox.com/s/c6rz5u2vw9oyf9f/odysseusOTA2-v1.0.4.zip
-        Pwned ibss: https://t.co/FANcsi2WYS
-        My modified ipsw: 
-        
-So, to start:
+<html lang="en">
+<head>
+  <title>@albyvar25 website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
 
-copy the kloader binary and the pwned ibss on the device with iFunbox or something similar
-Open a terminal and do chmod +x kloader (specify where kloader is etc..)
-now do kloader ibss_5 (or whatever you called ibss)
-wait for the device to shut down, and after some seconds press any button.
-Connect the device in dfu mode to the pc.
-Open terminal and do ./idevicerestore -t iPhone5,2_8.4.1_NoSetup.ipsw
-Now do: ./idevicerestore -w iPhone5,2_8.4.1_NoSetup.ipsw
-Wait for it to complete the restore
-Done.
+<div class="container">
+	<h1><img src="icon.png">Downgrade iOS</h1>
+	<p><span class="text-primary"><b>Part 1: iPhone 4 without shsh</span></b></p>
+</div>
 
-NOTE: I know this tutorial is not well made, when i have some more free time i'll make it better.
-Another thing: re-distributing ipsw is illegal. But for now I think it's the only solution to avoid users from downloading tons of material and fuck up things.
+<div class="container">
+	<div class="well">
+		<p><span class="text-primary"><b></span></b>In this part of my iOS downgrade tutorial, I'll explain you how to downgrade an iPhone 4 to any firmware (beta included) without shsh.</p>
+    		<p><span class="text-primary"><b></span></b>Kind of downgrade: TETHERED. You must boot your device with a computer.</p>
+  </div>
+</div>
+<div class="container">
+	<h1><img src="req.png">Requirements</h1>
+</div>
 
-</li>
-    </ul>
-    <p class="footer">Thanks for visiting my website :)</p>
-  </main>
+<div class="container">
+	<div class="well">
+		<p><span class="text-primary"><b></span></b>
+		<ul>
+  <li>A windows computer/vm</li>
+  <li>The ipsw file of the version you want to go to. You can download firmware files from <a href="https://ipsw.me/">ipsw.me</a></li>
+  <li>The ipsw file of the latest version for your device that apple is signing. You can download firmware files from <a href="https://ipsw.me/">ipsw.me</a></li>
+  <li>iTunes 11.0.5</li>
+  <li>Suns9: a tool to create the custom ipsw. Download <a href="https://github.com/iSuns9/Suns9/archive/master.zip">here</a></li>	
+  <li>iReb: a tool to get into pwned dfu mode. Download <a href="https://github.com/iH8sn0w/iREB-2.0/releases/r7/1097/ireb-r7.zip">here</a></li>
+  <div class="container">
+	<h1><img src="procedure.png">Procedure</h1>
+  </div>
+  <li>Extract Suns9 from the zip file and put the folder on your desktop.</li>			
+  <li>Extract "Suns9_GUI-v1.0.8.zip" and put the folder on your desktop.</li>	
+  <li>Put both the latest ipsw and the old ipsw in the same folder of Suns9</li>
+  <li>Run "Suns9_GUI.exe" as administrator</li>
+  <li>Set the original iOS 7.1.2 ipsw first</li>	
+  <li>and then select the target ipsw.</li>	
+  <li>Now go <a href="https://www.theiphonewiki.com/wiki/Firmware_Keys">here</a> and copy the root filesystem key for your firmware/device combo.</li>
+  <li>Paste the key in Suns9 </li>
+  <li>Press on build downgrade ipsw</li>	
+  <li>Wait while it does all the stuff</li>	
+  <li>When it's done, put your iPhone in DFU mode</li>	
+  <li>Now open iReb as administrator and choose iPhone 4</li>
+  <li>When iReb is done, open iTunes and press shift+restore</li>
+  <li>Choose the custom ipsw Suns9 created</li>
+  <li>Restore.</li>
+  <div class="container">
+	<h1><img src="boot.png">Booting</h1>
+  </div>
+  <li>When the restore will be completed, your device will reboot and will be stuck on an apple logo. That's normal.</li>	
+  <li>Put your iPhone in dfu mode</li>	
+  <li>Now, the method to boot your device depends on what version of iOS you installed.</li>	
+  <li>If you installed iOS 6.x or lower, use <a href="https://sites.google.com/a/iphone-dev.com/files/home/redsn0w_win_0.9.15b3.zip?attredirects=0">redsn0w</a> to boot it.</li>
+  <li>If you installed iOS 7.x , use <a href="http://www.mediafire.com/download/6a15pu16hgh4113/opensn0w_gui_win_v1.0.2.zip">opensn0w</a> to boot it.</li>
+  <li>If the provided methods aren't working, you could try booting with futurerestore, as shown (soon) </li>   
+<div class="well">
+		<p><span class="text-primary"><b></span></b>Thanks to</p>
+    <li>@iSuns9 and @iLov3rain for Suns9</li>	
+    <li>@iH8sn0w for iReb</li>
+    <li>iPhone dev team for redsn0w</li>
+    <li>@winocm for opensn0w</li>
+    <li>@ichitaso for opensn0w GUI</li>
+    <li>Everyone else and sorry if I forgot someone.</li>
+  </div>
+</div>	
+</ul>
+		</p>
+		
+	</div>
+</div>		
+<div class="well">
+		<p><span class="text-primary"><b></span></b>W.I.P.</p>
+		<p><span class="text-primary"><b></span></b>More downgrade tutorials will be available asap.</p>
+	</div>
+</div>	
+	
 </body>
 </html>
