@@ -71,20 +71,15 @@
 	<h1>Note 1: What to do if futurerestore says "abort trap 6" or complains something about keys:</h1>
   </div>
   <li>That happens when keys for your device are not available on the ipsw.me api. No worry, there's a workaround.</li>	
-  
-  
-		<li>If you are on 10.x and downloaded the file, extract it and put "kloader" in /usr/bin folder on your device. You can use filza (on device) or any tool (from pc) to move files in your iphone. Then install any terminal from cydia (Mterminal is good), login as root, and execute "chmod +x /usr/bin/kloader". </li>	
-  <li>Now go <a href="http://albyvar.github.io/ibss">here (soon)</a> and download the pwned iBSS file for your device.</li>
-  <li>Put the ibss file in /var/mobile/documents on your device and name it "ibss" without any extension.</li>
-  <li>Now open a terminal and execute "cd /var/mobile/documents" and then "kloader ibss". </li>  
-  <li>Your device will show some text and then will boot to a black screen. After 10 seconds press any button and you can continue reading the tutorial.</li>  
+  <li>Download <a href="https://github.com/albyvar/firmwarefolder.git">this</a>, extract it and rename the folder to just "firmware"</li>	
+  <li>Put the folder in your home directory</li>
+  <li>Open a terminal window, cd to home directory (by default it's already done) and execute this command: "sudo python -m SimpleHTTPServer 80"</li>
+  <li>Now try again to execute futurerestore and see if it works. If it still gives errors, probably your firmware keys are not available. At the moment I don't have uploaded all the keys to firmwarefolder, but I'll soon add more devices/firmware combos.</li> 
 <div class="well">
 		<p><span class="text-primary"><b></span></b>Thanks to</p>
-    <li>@iSuns9 and @iLov3rain for Suns9</li>	
-    <li>@iH8sn0w for iReb</li>
-    <li>iPhone dev team for redsn0w</li>
-    <li>@winocm for opensn0w</li>
-    <li>@ichitaso for opensn0w GUI</li>
+    <li>@tihmstar for futurerestore</li>	
+    <li>@nyan_satan for kloader with hgsp4 patch</li>
+    <li>iPhonewiki owners</li>
     <li>Everyone else and sorry if I forgot someone.</li>
   </div>
 </div>	
