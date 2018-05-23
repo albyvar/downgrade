@@ -11,13 +11,13 @@
 
 <div class="container">
 	<h1>Downgrade iOS</h1>
-	<p><span class="text-primary"><b>Part 1: iPhone 4 without shsh</span></b></p>
+	<p><span class="text-primary"><b>Futurerestore: 32bit devices with shsh</span></b></p>
 </div>
 
 <div class="container">
 	<div class="well">
-		<p><span class="text-primary"><b></span></b>In this part of my iOS downgrade tutorial, I'll explain you how to downgrade an iPhone 4 to any firmware (beta included) without shsh.</p>
-    		<p><span class="text-primary"><b></span></b>Kind of downgrade: TETHERED. You must boot your device with a computer.</p>
+		<p><span class="text-primary"><b></span></b>In this part of my iOS downgrade tutorial, I'll explain you how to downgrade any 32 bit device to any firmware (beta included) with shsh.</p>
+    		<p><span class="text-primary"><b></span></b>Kind of downgrade: UNTETHERED. No need to boot with pc.</p>
   </div>
 </div>
 <div class="container">
@@ -28,39 +28,56 @@
 	<div class="well">
 		<p><span class="text-primary"><b></span></b>
 		<ul>
-  <li>A windows computer/vm</li>
+  <li>A macOS or Linux computer (windows futurerestore does not have support for libipatcher)</li>
   <li>The ipsw file of the version you want to go to. You can download firmware files from <a href="https://ipsw.me/">ipsw.me</a></li>
-  <li>The ipsw file of the latest version for your device that apple is signing. You can download firmware files from <a href="https://ipsw.me/">ipsw.me</a></li>
-  <li>iTunes 11.0.5</li>
-  <li>Suns9: a tool to create the custom ipsw. Download <a href="https://github.com/iSuns9/Suns9/archive/master.zip">here</a></li>	
-  <li>iReb: a tool to get into pwned dfu mode. Download <a href="https://github.com/iH8sn0w/iREB-2.0/releases/r7/1097/ireb-r7.zip">here</a></li>
-<div class="container">
+  <li>Futurerestore+libipatcher. You can download it from <a href="http://api.tihmstar.net/builds/futurerestore/futurerestore-latest.zip">here</a></li>
+  <li>Your shsh file. See how to check for blobs here(soon)</li>
+  <li>Your device must be jailbroken and with tfp0 patch or hgsp4 patch. Most jailbreaks are ready for this. Check if your jailbreak supports the patches <a href="https://www.theiphonewiki.com/wiki/Tfp0_patch">here</a></li>
 <h1>Procedure</h1>
   </div>
-  <li>Extract Suns9 from the zip file and put the folder on your desktop.</li>			
-  <li>Extract "Suns9_GUI-v1.0.8.zip" and put the folder on your desktop.</li>	
-  <li>Put both the latest ipsw and the old ipsw in the same folder of Suns9</li>
-  <li>Run "Suns9_GUI.exe" as administrator</li>
-  <li>Set the original iOS 7.1.2 ipsw first</li>	
-  <li>and then select the target ipsw.</li>	
-  <li>Now go <a href="https://www.theiphonewiki.com/wiki/Firmware_Keys">here</a> and copy the root filesystem key for your firmware/device combo.</li>
-  <li>Paste the key in Suns9 </li>
-  <li>Press on build downgrade ipsw</li>	
-  <li>Wait while it does all the stuff</li>	
-  <li>When it's done, put your iPhone in DFU mode</li>	
-  <li>Now open iReb as administrator and choose iPhone 4</li>
-  <li>When iReb is done, open iTunes and press shift+restore</li>
-  <li>Choose the custom ipsw Suns9 created</li>
-  <li>Restore.</li>
+  <li>On your device, open Cydia and add this repo: repo.tihmstar.net</li>			
+  <li>Install "Kdfuapp" from the previously added repo. If your device is not supported, check the bottom of this page to find another method.</li>	
+  <li>Open the app and follow on screen instructions.</li>
+  <li>After your device shows a black screen, press any button (home,power), connect it to computer and check if iTunes recognized it as a dfu mode device.</li>
+  <li>If iTunes did not detect your device, hard reboot and try again</li>	
+  <li>If iTunes recognized your device, extract futurerestore on your desktop</li>	
+  <li>Put the ipsw and the shsh file in the same folder of futurerestore. I suggest renaming the ipsw to "ipsw.ipsw" (without quotes) and the shsh file to "shsh.shsh" (without quotes)</li>		
+  <li>Open a new terminal window and cd into the futurerestore directory. Example: "cd /Users/Yourname/Desktop/futurerestore" </li>
+  <li>Give futurerestore_macos or futurerestore_linux the correct permissions. Example: "chmod +x futurerestore_macos"</li>
+  <li>Now execute futurerestore. Example: "./futurerestore_macos</li>	
+  <li>It will show the usage options. Check if it says "odysseus support:yes" so you're ready to go.</li>
+ 
+  <li>If your device is an iPhone or iPad cellular, read the text below:</li>
+  <li>iPhone/cellular iPad --->give the command to downgrade. Example: "./futurerestore -t shsh.shsh --use-pwndfu --latest-baseband ipsw.ipsw"</li>	
+  
+  
+  <li>If your device is a wifi iPad or an iPod, read the text below:</li>
+  <li>iPod/wifi iPad--->give the command to downgrade. Example: "./futurerestore -t shsh.shsh --use-pwndfu --no-baseband ipsw.ipsw</li>
+ 
+<li>Press enter and wait for it to complete. If iTunes opens, close it.</li>
 <div class="container">
-	<h1>Booting</h1>
+	<h1>Note 1: What to do if KDfuApp does not support your device:</h1>
   </div>
-  <li>When the restore will be completed, your device will reboot and will be stuck on an apple logo. That's normal.</li>	
-  <li>Put your iPhone in dfu mode</li>	
-  <li>Now, the method to boot your device depends on what version of iOS you installed.</li>	
-  <li>If you installed iOS 6.x or lower, use <a href="https://sites.google.com/a/iphone-dev.com/files/home/redsn0w_win_0.9.15b3.zip?attredirects=0">redsn0w</a> to boot it.</li>
-  <li>If you installed iOS 7.x , use <a href="http://www.mediafire.com/download/6a15pu16hgh4113/opensn0w_gui_win_v1.0.2.zip">opensn0w</a> to boot it.</li>
-  <li>If the provided methods aren't working, you could try booting with futurerestore, as shown (soon) </li>   
+  <li>KDfuApp does not support every device, but don't worry: there's another method to get into pwned dfu mode.</li>	
+  <li>Download kloader from tihmstar repo (if you have iOS 9.x or lower) or download <a href="https://drive.google.com/open?id=1WTehoZ_on74J4EbDyo5YzUVNGMeBIEaL">this</a> if you are on iOS 10.x</li>	
+  
+		<li>If you are on 10.x and downloaded the file, extract it and put "kloader" in /usr/bin folder on your device. You can use filza (on device) or any tool (from pc) to move files in your iphone. Then install any terminal from cydia (Mterminal is good), login as root, and execute "chmod +x /usr/bin/kloader". </li>	
+  <li>Now go <a href="http://albyvar.github.io/ibss">here (soon)</a> and download the pwned iBSS file for your device.</li>
+  <li>Put the ibss file in /var/mobile/documents on your device and name it "ibss" without any extension.</li>
+  <li>Now open a terminal and execute "cd /var/mobile/documents" and then "kloader ibss". </li>  
+  <li>Your device will show some text and then will boot to a black screen. After 10 seconds press any button and you can continue reading the tutorial.</li>  
+<div class="well">
+<div class="container">
+	<h1>Note 1: What to do if futurerestore says "abort trap 6" or complains something about keys:</h1>
+  </div>
+  <li>That happens when keys for your device are not available on the ipsw.me api. No worry, there's a workaround.</li>	
+  
+  
+		<li>If you are on 10.x and downloaded the file, extract it and put "kloader" in /usr/bin folder on your device. You can use filza (on device) or any tool (from pc) to move files in your iphone. Then install any terminal from cydia (Mterminal is good), login as root, and execute "chmod +x /usr/bin/kloader". </li>	
+  <li>Now go <a href="http://albyvar.github.io/ibss">here (soon)</a> and download the pwned iBSS file for your device.</li>
+  <li>Put the ibss file in /var/mobile/documents on your device and name it "ibss" without any extension.</li>
+  <li>Now open a terminal and execute "cd /var/mobile/documents" and then "kloader ibss". </li>  
+  <li>Your device will show some text and then will boot to a black screen. After 10 seconds press any button and you can continue reading the tutorial.</li>  
 <div class="well">
 		<p><span class="text-primary"><b></span></b>Thanks to</p>
     <li>@iSuns9 and @iLov3rain for Suns9</li>	
